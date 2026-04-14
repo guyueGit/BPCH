@@ -1,111 +1,108 @@
 # BPCH: Bidirectional Pyramid Multi-Scale Collaborative Hashing for Cross-Modal Retrieval
 
-This is the official PyTorch implementation of the paper: **"BPCH: Bidirectional Pyramid Multi-Scale Collaborative Hashing for Cross-Modal Retrieval"** (Submitted to IEEE Transactions on Multimedia).
+Official PyTorch implementation of the paper **"BPCH: Bidirectional Pyramid Multi-Scale Collaborative Hashing for Cross-Modal Retrieval"**, submitted to **IEEE Transactions on Multimedia (TMM)**.
 
-BPCH addresses the "scale-isolated" bottleneck in cross-modal hashing by reframing multi-scale hash code generation as a collaborative learning process. It features a Bidirectional Pyramid Architecture (BPA), Weighted Level Module (WLM), and Attention-Gated Cross-Fusion (AGCF).
+BPCH addresses the "scale-isolated" bottleneck in cross-modal hashing by enabling synergistic learning between different bit-lengths through a Bidirectional Pyramid Architecture.
 
 ---
 
-## 🛠️ Step-by-Step Installation Guide
+## 🛠️ 1. Environment Configuration
 
-Follow these steps to set up the environment and run the code from scratch.
+This project is tested on Ubuntu 20.04, PyTorch 1.12.1, and CUDA 11.3.
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/YourUsername/BPCH.git
-cd BPCH
-```
-
-### 2. Environment Configuration
-We recommend using **Conda** for environment management.
+### Step-by-Step Setup
 ```bash
 # Create a virtual environment
 conda create -n bpch python=3.8 -y
 conda activate bpch
 
-# Install PyTorch and Torchvision (Tested on CUDA 11.3)
-# Note: Adjust the cuXXX version according to your local machine
+# Install PyTorch and Torchvision
 pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113
 
-# Install other dependencies
-pip install transformers timm scikit-learn scipy tqdm h5py matplotlib pytorch-metric-learning
+# Install dependencies from the requirements file
+pip install -r requirements.txt
 ```
-
-### 3. Download Pre-trained Backbones
-The model uses CLIP (ViT-B/32) as the visual backbone.
-1. Download the pre-trained weight `ViT-B-32.pt` from the [Official OpenAI CLIP Repository](https://github.com/openai/CLIP).
-2. Place the `ViT-B-32.pt` file into the **root directory** of the project.
 
 ---
 
-## 📂 Data Preparation
+## 📊 2. Data Preparation
 
-We support three major benchmarks: **MIRFLICKR-25K**, **NUS-WIDE**, and **MS COCO**.
+### Download Original Data
+You need to download the original data from the following sources:
+- **MS COCO**: [COCO 2017](https://cocodataset.org/) (Include 2017 train, val, and annotations).
+- **NUS-WIDE**: [Google Drive](https://drive.google.com/drive/folders/0B7IC9986m6R5flZ3SExueXpYLUU?resourcekey=0-V78W_9-P2P3p9p8Z4Z9Q).
+- **MIRFLICKR-25K**: [Baidu Cloud](https://pan.baidu.com/s/1pL9u9e1) (Extraction Code: `u9e1`) or [Google Drive](https://drive.google.com/drive/folders/0B7IC9986m6R5fllGZ3SExueXpYLUU?resourcekey=0-V78W_9-P2P3p9p8Z4Z9Q).
 
-### 1. Dataset Organization
-Create a `dataset` directory and organize the files as follows (using `nuswide` as an example):
+### Generate Processed Files
+Use the provided scripts in the `data/` directory (e.g., `make_coco.py`) to generate the required `.mat` files. After processing, organize the `dataset` directory as follows:
 
 ```text
-BPCH/
-├── dataset/
-│   └── nuswide/
-│       ├── index.mat     # Image path indices
-│       ├── label.mat     # Binary semantic labels (N x num_classes)
-│       └── caption.txt   # Raw text descriptions (one line per sample)
-├── main.py
-├── unified_config.py
-└── ...
+dataset
+├── base.py
+├── __init__.py
+├── dataloader.py
+├── coco
+│   ├── caption.mat 
+│   ├── index.mat
+│   └── label.mat 
+├── flickr25k
+│   ├── caption.mat
+│   ├── index.mat
+│   └── label.mat
+└── nuswide
+    ├── caption.txt  # Note: NUS-WIDE uses a .txt file
+    ├── index.mat 
+    └── label.mat
 ```
-
-### 2. File Requirements
-- `.mat` files should be compatible with `scipy.io.loadmat`.
-- The number of samples across `index.mat`, `label.mat`, and `caption.txt` must be identical.
 
 ---
 
-## 🏋️ Training and Optimization
+## 📥 3. Download CLIP Pre-trained Model
 
-BPCH utilizes a **Joint Training Paradigm**, optimizing 8, 16, 32, 64, and 128-bit hash codes simultaneously in a single forward pass.
+This code is based on the **ViT-B/32** backbone. 
+1. Download `ViT-B-32.pt` from the official CLIP repository or [OpenAI's CDN](https://github.com/openai/CLIP).
+2. Copy the `ViT-B-32.pt` file to the root directory of this project.
 
-To start training on the **NUS-WIDE** dataset:
+---
+
+## 🏋️ 4. Training
+
+BPCH supports **joint multi-scale optimization**. Run the following command to train on your target dataset (e.g., MS COCO):
 
 ```bash
-python main.py --dataset nuswide \
-               --numclass 21 \
-               --is-train True \
-               --output-dim 64 \
-               --batch-size 128 \
+python main.py --is-train True \
+               --dataset coco \
+               --caption-file caption.mat \
+               --index-file index.mat \
+               --label-file label.mat \
                --lr 0.001 \
-               --clip-lr 1e-5 \
-               --epochs 50 \
-               --save-dir ./result
+               --output-dim 64 \
+               --save-dir ./result/coco/64 \
+               --clip-path ./ViT-B-32.pt \
+               --batch-size 128 \
+               --epochs 50
 ```
 
-**Key Arguments:**
-- `--is-train True`: Set to training mode.
-- `--output-dim`: Specifies the primary bit-length for logging (all scales are optimized jointly).
-- `--clip-path`: Path to `ViT-B-32.pt` (default is root).
-- `--save-dir`: Directory to save checkpoints and logs.
+*Note: For NUS-WIDE, ensure you set `--caption-file caption.txt`.*
 
 ---
 
-## 🔍 Evaluation and Testing
+## 🔍 5. Testing & Evaluation
 
-To evaluate a trained model and generate hash codes, set `--is-train` to `False` and specify the checkpoint path.
+To evaluate a trained model and output mAP for all scales (16, 32, 64 bits):
 
 ```bash
-python main.py --dataset nuswide \
-               --is-train False \
-               --pretrained ./result/best_model_scales/64bits-best.mat \
+python main.py --is-train False \
+               --dataset coco \
+               --pretrained ./result/coco/64/best_model_scales/64bits-best.mat \
                --output-dim 64 \
-               --query-num 5000 \
-               --train-num 10000
+               --save-dir ./result/test_results
 ```
 
-**Output Explanation:**
-1. **Console Output:** The script will display the **mAP** scores for both Image-to-Text (I2T) and Text-to-Image (T2I) retrieval tasks.
-2. **Hash Codes:** Generated binary codes for all scales will be saved as `.mat` files in `./result/test_results/`.
-3. **Best Models:** The multi-scale hash codes for the best performing epoch are saved in `./result/best_model_scales/`.
+The script will:
+1. Load the binary codes from the `.mat` checkpoint.
+2. Calculate and display mAP for **Image-to-Text (I2T)** and **Text-to-Image (T2I)**.
+3. Export hash codes into the `test_results` folder.
 
 ---
 
@@ -113,21 +110,21 @@ python main.py --dataset nuswide \
 
 ```text
 BPCH/
-├── dataset/             # Data storage directory
-├── model/               # Model definitions (DSPH, BPA, WLM, AGCF)
-├── utils/               # Loss functions (CPF, bit_var, etc.) and metrics
-├── AdaTriplet/          # Triplet mining and loss modules
-├── unified_config.py    # Global hyperparameter configuration
-├── train_trainer.py     # Main training and validation logic
-├── main.py              # Entry point for execution
-└── ViT-B-32.pt          # Pre-trained visual backbone (to be downloaded)
+├── dataset/             # Data loading and processing
+├── model/               # BPCH Architecture (BPA, WLM, AGCF)
+├── utils/               # Loss functions (CPF, Triplet) and evaluation metrics
+├── AdaTriplet/          # Metric learning supporting modules
+├── unified_config.py    # Global hyper-parameters
+├── train_trainer.py     # Training and validation logic
+├── main.py              # Main entry point
+└── requirements.txt     # Python dependencies
 ```
 
 ---
 
 ## 📝 Citation
 
-If you find this work or code useful for your research, please cite:
+If you find this work useful, please cite our paper:
 
 ```bibtex
 @article{hu2026bpch,
@@ -140,8 +137,13 @@ If you find this work or code useful for your research, please cite:
 
 ---
 
-## 📧 Contact
-For any questions regarding the code or paper, please contact:
-**Rui Hu** (2022112776@stu.hit.edu.cn)
-Harbin Institute of Technology, China.
+## 🙏 Acknowledgements
+
+This project is built upon the following works:
+- [CLIP](https://github.com/openai/CLIP)
+- [DScPH (Deep Semantic-consistent Penalizing Hashing)](https://github.com/QinQibing/DScPH)
+- [DCHMT](https://github.com/S-S-Y/DCHMT)
+
+---
+**Contact:** Rui Hu (2022112776@stu.hit.edu.cn) | Harbin Institute of Technology.
 ```
