@@ -1,0 +1,12 @@
+torch
+torchvision
+transformers
+timm
+ftfy
+regex
+tqdm
+numpy
+scipy
+scikit-learn
+Pillow
+
