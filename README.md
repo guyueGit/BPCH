@@ -1,9 +1,5 @@
 # BPCH: Bidirectional Pyramid Multi-Scale Collaborative Hashing for Cross-Modal Retrieval
 
-Official PyTorch implementation of the paper **"BPCH: Bidirectional Pyramid Multi-Scale Collaborative Hashing for Cross-Modal Retrieval"**, submitted to **IEEE Transactions on Multimedia (TMM)**.
-
-BPCH addresses the "scale-isolated" bottleneck in cross-modal hashing by enabling synergistic learning between different bit-lengths through a Bidirectional Pyramid Architecture.
-
 ---
 
 ## 🛠️ 1. Environment Configuration
@@ -15,9 +11,6 @@ This project is tested on Ubuntu 20.04, PyTorch 1.12.1, and CUDA 11.3.
 # Create a virtual environment
 conda create -n bpch python=3.8 -y
 conda activate bpch
-
-# Install PyTorch and Torchvision
-pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113
 
 # Install dependencies from the requirements file
 pip install -r requirements.txt
@@ -122,27 +115,6 @@ BPCH/
 
 ---
 
-## 📝 Citation
-
-If you find this work useful, please cite our paper:
-
-```bibtex
-@article{hu2026bpch,
-  title={BPCH: Bidirectional Pyramid Multi-Scale Collaborative Hashing for Cross-Modal Retrieval},
-  author={Hu, Rui and Zhang, Li and Wu, Xiangqian},
-  journal={IEEE Transactions on Multimedia},
-  year={2026}
-}
-```
-
----
-
-## 🙏 Acknowledgements
-
-This project is built upon the following works:
-- [CLIP](https://github.com/openai/CLIP)
-- [DScPH (Deep Semantic-consistent Penalizing Hashing)](https://github.com/QinQibing/DScPH)
-- [DCHMT](https://github.com/S-S-Y/DCHMT)
 
 ---
 **Contact:** Rui Hu (2022112776@stu.hit.edu.cn) | Harbin Institute of Technology.
