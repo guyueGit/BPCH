@@ -1,0 +1,65 @@
+2025-05-31 09:38:31,743:INFO: Namespace(save_dir='./result', clip_path='./ViT-B-32.pt', pretrained='', dataset='flickr25k', index_file='index.mat', caption_file='caption.mat', label_file='label.mat', output_dim=16, numclass=24, epochs=100, max_words=32, resolution=224, batch_size=128, num_workers=4, query_num=2000, train_num=5000, lr_decay_freq=5, display_step=50, seed=1814, hypseed=0, lr=0.001, alpha=0.8, lr_decay=0.9, clip_lr=1e-05, weight_decay=0.2, warmup_proportion=0.1, is_train=True)
+2025-05-31 09:38:31,744:INFO: init dataset.
+2025-05-31 09:38:31,744:INFO: Using flickr25k dataset.
+2025-05-31 09:38:33,168:INFO: query shape: torch.Size([2000, 24])
+2025-05-31 09:38:33,169:INFO: retrieval shape: torch.Size([22581, 24])
+2025-05-31 09:38:33,169:INFO: init model.
+2025-05-31 09:38:33,169:INFO: ViT+GPT!
+2025-05-31 09:39:15,666:INFO: Namespace(save_dir='./result', clip_path='./ViT-B-32.pt', pretrained='', dataset='flickr25k', index_file='index.mat', caption_file='caption.mat', label_file='label.mat', output_dim=16, numclass=24, epochs=100, max_words=32, resolution=224, batch_size=128, num_workers=4, query_num=2000, train_num=5000, lr_decay_freq=5, display_step=50, seed=1814, hypseed=0, lr=0.001, alpha=0.8, lr_decay=0.9, clip_lr=1e-05, weight_decay=0.2, warmup_proportion=0.1, is_train=True)
+2025-05-31 09:39:15,667:INFO: init dataset.
+2025-05-31 09:39:15,667:INFO: Using flickr25k dataset.
+2025-05-31 09:39:17,132:INFO: query shape: torch.Size([2000, 24])
+2025-05-31 09:39:17,133:INFO: retrieval shape: torch.Size([22581, 24])
+2025-05-31 09:39:17,133:INFO: init model.
+2025-05-31 09:39:17,133:INFO: ViT+GPT!
+2025-05-31 09:40:36,323:INFO: Namespace(save_dir='./result', clip_path='../ViT-B-32.pt', pretrained='', dataset='flickr25k', index_file='index.mat', caption_file='caption.mat', label_file='label.mat', output_dim=16, numclass=24, epochs=100, max_words=32, resolution=224, batch_size=128, num_workers=4, query_num=2000, train_num=5000, lr_decay_freq=5, display_step=50, seed=1814, hypseed=0, lr=0.001, alpha=0.8, lr_decay=0.9, clip_lr=1e-05, weight_decay=0.2, warmup_proportion=0.1, is_train=True)
+2025-05-31 09:40:36,324:INFO: init dataset.
+2025-05-31 09:40:36,325:INFO: Using flickr25k dataset.
+2025-05-31 09:40:37,809:INFO: query shape: torch.Size([2000, 24])
+2025-05-31 09:40:37,810:INFO: retrieval shape: torch.Size([22581, 24])
+2025-05-31 09:40:37,810:INFO: init model.
+2025-05-31 09:40:37,811:INFO: ViT+GPT!
+2025-05-31 09:41:47,366:INFO: Namespace(save_dir='./result', clip_path='../ViT-B-32.pt', pretrained='', dataset='flickr25k', index_file='index.mat', caption_file='caption.mat', label_file='label.mat', output_dim=16, numclass=24, epochs=100, max_words=32, resolution=224, batch_size=128, num_workers=4, query_num=2000, train_num=5000, lr_decay_freq=5, display_step=50, seed=1814, hypseed=0, lr=0.001, alpha=0.8, lr_decay=0.9, clip_lr=1e-05, weight_decay=0.2, warmup_proportion=0.1, is_train=True)
+2025-05-31 09:41:47,367:INFO: init dataset.
+2025-05-31 09:41:47,367:INFO: Using flickr25k dataset.
+2025-05-31 09:41:48,793:INFO: query shape: torch.Size([2000, 24])
+2025-05-31 09:41:48,794:INFO: retrieval shape: torch.Size([22581, 24])
+2025-05-31 09:41:48,794:INFO: init model.
+2025-05-31 09:41:48,794:INFO: ViT+GPT!
+2025-05-31 09:43:26,930:INFO: Namespace(save_dir='./result', clip_path='../ViT-B-32.pt', pretrained='', dataset='flickr25k', index_file='index.mat', caption_file='caption.mat', label_file='label.mat', output_dim=16, numclass=24, epochs=100, max_words=32, resolution=224, batch_size=128, num_workers=4, query_num=2000, train_num=5000, lr_decay_freq=5, display_step=50, seed=1814, hypseed=0, lr=0.001, alpha=0.8, lr_decay=0.9, clip_lr=1e-05, weight_decay=0.2, warmup_proportion=0.1, is_train=True)
+2025-05-31 09:43:26,931:INFO: init dataset.
+2025-05-31 09:43:26,931:INFO: Using flickr25k dataset.
+2025-05-31 09:43:28,465:INFO: query shape: torch.Size([2000, 24])
+2025-05-31 09:43:28,466:INFO: retrieval shape: torch.Size([22581, 24])
+2025-05-31 09:43:28,468:INFO: init model.
+2025-05-31 09:43:28,468:INFO: ViT+GPT!
+2025-05-31 09:44:00,015:INFO: Namespace(save_dir='./result', clip_path='../ViT-B-32.pt', pretrained='', dataset='flickr25k', index_file='index.mat', caption_file='caption.mat', label_file='label.mat', output_dim=16, numclass=24, epochs=100, max_words=32, resolution=224, batch_size=128, num_workers=4, query_num=2000, train_num=5000, lr_decay_freq=5, display_step=50, seed=1814, hypseed=0, lr=0.001, alpha=0.8, lr_decay=0.9, clip_lr=1e-05, weight_decay=0.2, warmup_proportion=0.1, is_train=True)
+2025-05-31 09:44:00,016:INFO: init dataset.
+2025-05-31 09:44:00,016:INFO: Using flickr25k dataset.
+2025-05-31 09:44:01,460:INFO: query shape: torch.Size([2000, 24])
+2025-05-31 09:44:01,460:INFO: retrieval shape: torch.Size([22581, 24])
+2025-05-31 09:44:01,461:INFO: init model.
+2025-05-31 09:44:01,461:INFO: ViT+GPT!
+2025-05-31 09:44:03,613:INFO: dataset len: 5000
+2025-05-31 09:44:03,613:INFO: Start train.
+2025-05-31 09:44:03,613:INFO: >>>>>> epochs: 0/100
+2025-05-31 09:48:31,964:INFO: Namespace(save_dir='./result', clip_path='../ViT-B-32.pt', pretrained='', dataset='flickr25k', index_file='index.mat', caption_file='caption.mat', label_file='label.mat', output_dim=16, numclass=24, epochs=100, max_words=32, resolution=224, batch_size=128, num_workers=4, query_num=2000, train_num=5000, lr_decay_freq=5, display_step=50, seed=1814, hypseed=0, lr=0.001, alpha=0.8, lr_decay=0.9, clip_lr=1e-05, weight_decay=0.2, warmup_proportion=0.1, is_train=True)
+2025-05-31 09:48:31,964:INFO: init dataset.
+2025-05-31 09:48:31,965:INFO: Using flickr25k dataset.
+2025-05-31 09:48:33,391:INFO: query shape: torch.Size([2000, 24])
+2025-05-31 09:48:33,391:INFO: retrieval shape: torch.Size([22581, 24])
+2025-05-31 09:48:33,392:INFO: init model.
+2025-05-31 09:48:33,392:INFO: ViT+GPT!
+2025-05-31 09:48:36,060:INFO: dataset len: 5000
+2025-05-31 09:48:36,061:INFO: Start train.
+2025-05-31 09:48:36,061:INFO: >>>>>> epochs: 0/100
+2025-05-31 09:52:19,469:INFO: Namespace(save_dir='./result', clip_path='../ViT-B-32.pt', pretrained='', dataset='flickr25k', index_file='index.mat', caption_file='caption.mat', label_file='label.mat', output_dim=16, numclass=24, epochs=100, max_words=32, resolution=224, batch_size=128, num_workers=4, query_num=2000, train_num=5000, lr_decay_freq=5, display_step=50, seed=1814, hypseed=0, lr=0.001, alpha=0.8, lr_decay=0.9, clip_lr=1e-05, weight_decay=0.2, warmup_proportion=0.1, is_train=True)
+2025-05-31 09:52:19,470:INFO: init dataset.
+2025-05-31 09:52:19,470:INFO: Using flickr25k dataset.
+2025-05-31 09:52:20,938:INFO: query shape: torch.Size([2000, 24])
+2025-05-31 09:52:20,939:INFO: retrieval shape: torch.Size([22581, 24])
+2025-05-31 09:52:20,939:INFO: init model.
+2025-05-31 09:52:20,939:INFO: ViT+GPT!
+2025-05-31 09:52:23,141:INFO: dataset len: 5000
+2025-05-31 09:52:23,142:INFO: Start train.
+2025-05-31 09:52:23,142:INFO: >>>>>> epochs: 0/100
