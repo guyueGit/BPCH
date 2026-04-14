@@ -1,5 +1,3 @@
-
-```markdown
 # BPCH: Bidirectional Pyramid Multi-Scale Collaborative Hashing for Cross-Modal Retrieval
 
 This is the official PyTorch implementation of the paper: **"BPCH: Bidirectional Pyramid Multi-Scale Collaborative Hashing for Cross-Modal Retrieval"** (Submitted to IEEE Transactions on Multimedia).
