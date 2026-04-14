@@ -1,0 +1,10 @@
+2025-05-31 09:34:37,459:INFO: Namespace(save_dir='./result', clip_path='./ViT-B-32.pt', pretrained='', dataset='flickr25k', index_file='index.mat', caption_file='caption.mat', label_file='label.mat', output_dim=16, numclass=24, epochs=100, max_words=32, resolution=224, batch_size=128, num_workers=4, query_num=2000, train_num=5000, lr_decay_freq=5, display_step=50, seed=1814, hypseed=0, lr=0.001, alpha=0.8, lr_decay=0.9, clip_lr=1e-05, weight_decay=0.2, warmup_proportion=0.1, is_train=True)
+2025-05-31 09:34:37,460:INFO: init dataset.
+2025-05-31 09:34:37,460:INFO: Using flickr25k dataset.
+2025-05-31 09:36:33,083:INFO: Namespace(save_dir='./result', clip_path='./ViT-B-32.pt', pretrained='', dataset='flickr25k', index_file='index.mat', caption_file='caption.mat', label_file='label.mat', output_dim=16, numclass=24, epochs=100, max_words=32, resolution=224, batch_size=128, num_workers=4, query_num=2000, train_num=5000, lr_decay_freq=5, display_step=50, seed=1814, hypseed=0, lr=0.001, alpha=0.8, lr_decay=0.9, clip_lr=1e-05, weight_decay=0.2, warmup_proportion=0.1, is_train=True)
+2025-05-31 09:36:33,084:INFO: init dataset.
+2025-05-31 09:36:33,084:INFO: Using flickr25k dataset.
+2025-05-31 09:36:38,857:INFO: query shape: torch.Size([2000, 24])
+2025-05-31 09:36:38,858:INFO: retrieval shape: torch.Size([22581, 24])
+2025-05-31 09:36:38,858:INFO: init model.
+2025-05-31 09:36:38,858:INFO: ViT+GPT!
