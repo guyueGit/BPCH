@@ -113,6 +113,3 @@ BPCH/
 └── requirements.txt     # Python dependencies
 ```
 
-
-**Contact:** Rui Hu (2022112776@stu.hit.edu.cn) | Harbin Institute of Technology.
-```
